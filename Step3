@@ -1,0 +1,15 @@
+# 发博人
+creen_name = jd['data']['cards'][count]['mblog']['user']['screen_name']
+result['微博用户'].append(screen_name)
+# 这部分是获取微博用户的文本内容
+# 发表时间
+a = ('\''+jd['data']['cards'][count]['mblog']['created_at']+'\'').count('-')
+if a == 2:
+date = datetime.strptime(jd['data']['cards'][count]['mblog']['created_at'],'%Y-%m-%d')
+datesrt = date.strftime('%Y-%m-%d')
+if a == 1:
+date = datetime.strptime(jd['data']['cards'][count]['mblog']['created_at'],'%m-%d')
+datesrt = date.strftime('2018'+'-%m-%d')
+if a == 0:
+datesrt = '今天或昨天'
+result['发博日期'].append(datesrt)
